@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UIAirlinesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Booking">
+    <Key>
+      <PropertyRef Name="BookingID" />
+    </Key>
+    <Property Name="BookingID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="FlightID" Type="uniqueidentifier" />
+    <Property Name="UserID" Type="uniqueidentifier" />
+    <Property Name="Seat" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Flight">
+    <Key>
+      <PropertyRef Name="FlightID" />
+    </Key>
+    <Property Name="FlightID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Origin" Type="varchar" MaxLength="20" />
+    <Property Name="Destination" Type="varchar" MaxLength="20" />
+    <Property Name="DepartureTime" Type="datetime" />
+    <Property Name="ArrivalTime" Type="datetime" />
+    <Property Name="TotalSeat" Type="int" />
+    <Property Name="SeatRemained" Type="int" />
+  </EntityType>
+  <EntityType Name="tblUserAccount">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="20" />
+    <Property Name="Password" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityContainer Name="UIAirlinesModelStoreContainer">
+    <EntitySet Name="Booking" EntityType="Self.Booking" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Flight" EntityType="Self.Flight" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblUserAccount" EntityType="Self.tblUserAccount" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

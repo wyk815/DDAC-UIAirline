@@ -1,0 +1,62 @@
+﻿@model Airline.ViewModels.BookFlightVM
+
+@{
+    ViewBag.Title = "Book";
+}
+
+<h2>Book</h2>
+<hr />
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Booking</legend>
+
+        @Html.HiddenFor(model => model.FlightID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Origin)
+        </div>
+        @Html.DisplayFor(model => model.Origin)
+        <hr />
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Destination)
+        </div>
+        @Html.DisplayFor(model => model.Destination)
+        <hr />
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DepartureTime)
+        </div>
+        @Html.DisplayFor(model => model.DepartureTime)
+        <hr />
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ArrivalTime)
+        </div>
+        @Html.DisplayFor(model => model.ArrivalTime)
+
+
+
+
+        @*<div class="editor-label">
+            @Html.LabelFor(model => model.Seat)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Seat)
+            @Html.ValidationMessageFor(model => model.Seat)
+        </div>*@
+
+        <p>
+            <input type="submit" value="Book Flight" />
+        </p>
+    </fieldset>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

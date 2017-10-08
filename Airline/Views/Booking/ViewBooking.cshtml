@@ -1,0 +1,56 @@
+﻿@model Airline.ViewModels.ListViewBookingVM
+
+@{
+    ViewBag.Title = "ViewBooking";
+}
+
+@if (ViewBag.empty != "empty")
+{
+<h2>View Booking</h2>
+<hr />
+<table>
+    <tr>
+        <th>
+            @Html.DisplayName("Origin")
+        </th>
+        <th>
+            @Html.DisplayName("Destination")
+        </th>
+        <th>
+            @Html.DisplayName("Departure Time")
+        </th>
+        <th>
+            @Html.DisplayName("Arrival Time")
+        </th>
+        <th>
+            @Html.DisplayName("Seat Number")
+        </th>
+    </tr>
+
+@foreach (var item in Model.List1)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Origin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Destination)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DepartureTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ArrivalTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Seat)
+        </td>
+    </tr>
+}
+
+</table>
+}
+else
+{
+    <h2>Booking is empty</h2>
+}
