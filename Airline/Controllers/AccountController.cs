@@ -23,7 +23,7 @@ namespace Airline.Controllers
         {
     
             
-            var dataItem = db.tblUserAccounts.Where(x => x.Username == model.Username && x.Password == model.Password).First();
+            var dataItem = db.tblUserAccounts.Where(x => x.Username == model.Username && x.Password == model.Password).FirstOrDefault();
             if (dataItem != null)
             {
                 FormsAuthentication.SetAuthCookie(dataItem.Username, false);
