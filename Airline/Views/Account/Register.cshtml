@@ -9,7 +9,7 @@
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
-
+    @Html.ValidationMessage("error")
     <fieldset>
         <legend>tblUserAccount</legend>
 
